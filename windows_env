@@ -1,7 +1,44 @@
--install chrome
--install visual studio C++ build tools - (BuildTools_Full)
--install visual studio 2015 (https://go.microsoft.com/fwlink/?LinkId=532606&clcid=0x409)
--CUDA - latest if using GPU
--download and unzip Opencv_3x(https://sourceforge.net/projects/opencvlibrary/files/opencv-win/3.2.0/opencv-3.2.0-vc14.exe/download) 
--add Windows system variable cudnn with path to CUDNN: https://hsto.org/files/a49/3dc/fc4/a493dcfc4bd34a1295fd15e0e2e01f26.jpg
--open \darknet.sln -> (right click on project) -> properties -> C/C++ -> Preprocessor -> Preprocessor Definitions, and add at the beginning of line: CUDNN;
+- install chrome
+- install visual studio C++ build tools - (BuildTools_Full)
+- install visual studio 2015 (https://go.microsoft.com/fwlink/?LinkId=532606&clcid=0x409)
+- CUDA - latest if using GPU
+- install cuDNN (https://developer.nvidia.com/cudnn)
+- download and unzip Opencv_3x(https://sourceforge.net/projects/opencvlibrary/files/opencv-win/3.2.0/opencv-3.2.0-vc14.exe/download) 
+- add Windows system variable cudnn with path to CUDNN: https://hsto.org/files/a49/3dc/fc4/a493dcfc4bd34a1295fd15e0e2e01f26.jpg
+- open \darknet.sln -> (right click on project) -> properties -> C/C++ -> Preprocessor -> Preprocessor Definitions, and add at the 
+  beginning of line: CUDNN;
+- download Darknet and unzip (https://github.com/AlexeyAB/darknet.git)
+- on the actual machine, download bboxtool and label images and convert it to the required format. So there should be one .jpg and 
+  .txt file with the same names
+- create a train.txt and test.txt files with the image names and extensions 
+- All the .jpg's and .txt files should be in one folder and name it 001 for one single object
+- If there are more than one object, there must be one folder for each and numbering should be 002 etc and all the .jpgs and .txt files
+  should be in it. The train.txt and test.txt should be modified accordingly
+
+- make sure opencv is in C: directly
+- (make sure the paths are as follows: C:\opencv_3.0\opencv\build\include & C:\opencv_3.0\opencv\build\x64\vc14\lib)
+- open build\darknet\darknet.vcxproj by using Notepad, find 2 places with "CUDA 8.0" and change it to your CUDA-version
+- open \darknet.sln -> (right click on project) -> properties -> C/C++ -> Preprocessor -> Preprocessor Definitions, 
+  and add at the beginning of line: CUDNN
+- Open visual studio and open the darknet_no_gpu.sln. Right click on it and change the configuration to "Release" and "x64" and build.
+- For with GPU, open the darknet.sln file instead and do the same as above with configs. 
+- Once build is done, Find files opencv_world320.dll and opencv_ffmpeg320_64.dll in C:\opencv_3.0\opencv\build\x64\vc14\bin 
+  and put it near with darknet.exe
+- create, obj.data, obj.names and yolo-obj.cfg (.cfg from yolo.obj_2.0.cfg)
+- Edit obj.data and obj.names accordingly. Inside the .cfg file, edit the batch, subdivisions, classes, and filters 
+  (use formula for filters - filters=(classes + 5)*5)
+- Find files opencv_world320.dll and opencv_ffmpeg320_64.dll in C:\opencv_3.0\opencv\build\x64\vc14\bin and put it near 
+  with darknet.exe
+- move obj.names, obj.data to build\darknet\x64\data\
+- create folder obj to build\darknet\x64\data\
+- move all the .jpgs and .txts to the above created obj folder
+- create the .txts for multiple objects like below
+  For example for img1.jpg you should create img1.txt containing:
+
+  1 0.716797 0.395833 0.216406 0.147222
+  0 0.687109 0.379167 0.255469 0.158333
+  1 0.420312 0.395833 0.140625 0.166667
+- make sure the yolo-obj.cfg is in C:\darknet\build\darknet\x64
+- Download darknet19_448.conv.23 from https://pjreddie.com/media/files/darknet19_448.conv.23
+
+For 
