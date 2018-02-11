@@ -1,7 +1,7 @@
 - install chrome
 - install visual studio C++ build tools - (BuildTools_Full)
 - install visual studio 2015 (https://go.microsoft.com/fwlink/?LinkId=532606&clcid=0x409)
-- CUDA - latest if using GPU
+- CUDA - latest if using GPU (https://developer.nvidia.com/cuda-downloads)
 - install cuDNN (https://developer.nvidia.com/cudnn)
 - download and unzip Opencv_3x(https://sourceforge.net/projects/opencvlibrary/files/opencv-win/3.2.0/opencv-3.2.0-vc14.exe/download) 
 - add Windows system variable cudnn with path to CUDNN: https://hsto.org/files/a49/3dc/fc4/a493dcfc4bd34a1295fd15e0e2e01f26.jpg
