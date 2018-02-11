@@ -41,4 +41,9 @@
 - make sure the yolo-obj.cfg is in C:\darknet\build\darknet\x64
 - Download darknet19_448.conv.23 from https://pjreddie.com/media/files/darknet19_448.conv.23
 
-For 
+- For training, run the below command. Change the .exe file name based on with GPU or NO GPU build you have done above
+  darknet.exe detector train data/obj.data yolo-obj.cfg darknet19_448.conv.23
+  darknet_no_gpu.exe detector train data/obj.data yolo-obj.cfg darknet19_448.conv.23
+- For testing, run the below
+  darknet.exe detector test data/obj.data yolo-obj.cfg backup/yolo-obj_200.weights data/obj/pos-293.jpg
+
