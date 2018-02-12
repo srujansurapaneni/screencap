@@ -1,3 +1,5 @@
+OS and Environment settings:
+----------------------------
 - install chrome
 - install visual studio C++ build tools - (BuildTools_Full)
 - install visual studio 2015 (https://go.microsoft.com/fwlink/?LinkId=532606&clcid=0x409)
@@ -14,7 +16,13 @@
 - All the .jpg's and .txt files should be in one folder and name it 001 for one single object
 - If there are more than one object, there must be one folder for each and numbering should be 002 etc and all the .jpgs and .txt files
   should be in it. The train.txt and test.txt should be modified accordingly
-
+- open \darknet.sln -> (right click on project) -> properties -> C/C++ -> Preprocessor -> Preprocessor Definitions, and 
+  add at the beginning of line: CUDNN;
+- Find files opencv_world320.dll and opencv_ffmpeg320_64.dll in C:\opencv_3.0\opencv\build\x64\vc14\bin and put it near with 
+  darknet.exe
+  
+Data and cfg settings before training:
+--------------------------------------
 - make sure opencv is in C: directly
 - (make sure the paths are as follows: C:\opencv_3.0\opencv\build\include & C:\opencv_3.0\opencv\build\x64\vc14\lib)
 - open build\darknet\darknet.vcxproj by using Notepad, find 2 places with "CUDA 8.0" and change it to your CUDA-version
@@ -39,8 +47,10 @@
   0 0.687109 0.379167 0.255469 0.158333
   1 0.420312 0.395833 0.140625 0.166667
 - make sure the yolo-obj.cfg is in C:\darknet\build\darknet\x64
-- Download darknet19_448.conv.23 from https://pjreddie.com/media/files/darknet19_448.conv.23
+- Download darknet19_448.conv.23 from https://pjreddie.com/media/files/darknet19_448.conv.23 and put it in C:\darknet\build\darknet\x64
 
+Training and Testing:
+---------------------
 - For training, run the below command. Change the .exe file name based on with GPU or NO GPU build you have done above
   darknet.exe detector train data/obj.data yolo-obj.cfg darknet19_448.conv.23
   darknet_no_gpu.exe detector train data/obj.data yolo-obj.cfg darknet19_448.conv.23
