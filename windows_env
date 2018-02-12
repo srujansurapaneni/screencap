@@ -1,7 +1,8 @@
 OS and Environment settings:
 ----------------------------
 - install chrome
-- install visual studio C++ build tools - (BuildTools_Full)
+- install visual studio build tools - (BuildTools_Full)
+- install visuall C++ 2015 tools and sdk
 - install visual studio 2015 (https://go.microsoft.com/fwlink/?LinkId=532606&clcid=0x409)
 - CUDA - latest if using GPU (https://developer.nvidia.com/cuda-downloads)
 - install cuDNN (https://developer.nvidia.com/cudnn)
