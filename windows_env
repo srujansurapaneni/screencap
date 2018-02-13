@@ -32,7 +32,7 @@ Data and cfg settings before training:
 - move obj.names, obj.data to build\darknet\x64\data\
 - create folder obj to build\darknet\x64\data\
 - move all the .jpgs and .txts to the above created obj folder
-- create a train.txt and test.txt files with the image names and extensions
+- create a train.txt and test.txt files with the image names and extensions and move it to build\darknet\x64\data\
 - create the .txts for multiple objects like below
   For example for img1.jpg you should create img1.txt containing:
 
